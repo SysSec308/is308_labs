@@ -8,11 +8,12 @@
 
 建议使用Ubuntu 17.10的镜像，[ubuntu-17.10.1-desktop-amd64.iso](http://ftp.sjtu.edu.cn/ubuntu-cd/17.10.1/ubuntu-17.10.1-desktop-amd64.iso)
 
-（1）编译器gcc
-（2）调试工具gdb
-（3）[PEDA](https://github.com/longld/peda)（可选） - Python Exploit Development Assistance for GDB
-相关资料：http://ropshell.com/peda/
-（4）[pwntools](https://github.com/Gallopsled/pwntools) - CTF framework and exploit development library
+1. 编译器gcc
+2. 调试工具gdb
+3. [PEDA](https://github.com/longld/peda)（可选） - Python Exploit Development Assistance for GDB
+> 相关资料：http://ropshell.com/peda/
+4. [pwntools](https://github.com/Gallopsled/pwntools) - CTF framework and exploit development library
+
 ```sh
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -38,9 +39,9 @@ git clone https://github.com/JonathanSalwan/ROPgadget
 ### 2. Windows环境所需工具
 
 建议使用Windows 7 32位
-（1）编程环境VS2010或以上
-（2）调试工具[OllyDBG](http://www.ollydbg.de/odbg201.zip)
-（3）[IDA Pro](https://www.hex-rays.com/products/ida/support/download_freeware.shtml) - a static analysis tool
+1. 编程环境VS2010或以上
+2. 调试工具[OllyDBG](http://www.ollydbg.de/odbg201.zip)
+3. [IDA Pro](https://www.hex-rays.com/products/ida/support/download_freeware.shtml) - a static analysis tool
     * Shift + F12 – 查看字符串
     * X – 查看字符串引用
 
