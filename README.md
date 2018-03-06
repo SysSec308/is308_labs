@@ -38,7 +38,7 @@ git clone https://github.com/JonathanSalwan/ROPgadget
 
 ### 2. Windows环境所需工具
 
-建议使用Windows 7 32位
+建议使用Windows 7 32位以及上
 1. 编程环境VS2010或以上
 2. 调试工具[OllyDBG](http://www.ollydbg.de/odbg201.zip)
 3. [IDA Pro](https://www.hex-rays.com/products/ida/support/download_freeware.shtml) - a static analysis tool
