@@ -6,7 +6,7 @@
 
 ### 1. Linux环境所需工具
 
-建议使用Ubuntu 17.10的镜像，[ubuntu-17.10.1-desktop-amd64.iso](http://ftp.sjtu.edu.cn/ubuntu-cd/17.10.1/ubuntu-17.10.1-desktop-amd64.iso)
+建议使用Ubuntu 17.10的镜像（或其他16.04之后版本），[ubuntu-17.10.1-desktop-amd64.iso](http://ftp.sjtu.edu.cn/ubuntu-cd/17.10.1/ubuntu-17.10.1-desktop-amd64.iso)
 
 1. 编译器gcc
 2. 调试工具gdb
