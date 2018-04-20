@@ -1,4 +1,4 @@
-# Lab 3: 环境变量与setuid
+# Lab 3: Hook 函数和条件竞争
 ### Hook 函数
 实验环境：Ubuntu 17.10 amd64
 实验工具：GCC、GDB
