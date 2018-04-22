@@ -12,21 +12,22 @@
 #include <stdio.h>
 #include <string.h>
 
-	int main(int argc, char **argv) {
-	char passwd[] = "foobar";
+int main(int argc, char *argv[])
+{
+    if (argc < 2) {
+        printf("usage: %s <password>\n", argv[0]);
+        return 1;
+    }
 
-	if (argc < 2) {
-		printf("usage: %s <given-password>\n", argv[0]);
-		return 0;
-	}
-
-	if (!strcmp(passwd, argv[1])) {
-		printf("Green light!\n");
-		return 1;
-	}
-
-	printf("Red light!\n");
-	return 0;
+    if( strcmp(argv[1], "test") )
+    {
+        printf("Incorrect password\n");
+    }
+    else
+    {
+        printf("Correct password\n");
+    }
+    return 0;
 }
 ```
 2. strcmp-hijack.c，Hook函数strcmp使得其一定返回0
@@ -34,22 +35,29 @@
 ```c
 #include <stdio.h>
 #include <string.h>
+#include <dlfcn.h>
 
-int strcmp(const char *s1, const char *s2) {
+typedef int(*STRCMP)(const char*, const char*);
 
-	printf("S1 eq %s\n", s1);
-	printf("S2 eq %s\n", s2);
+int strcmp(const char *s1, const char *s2)
+{
+    static void *handle = NULL;
+    static STRCMP old_strcmp = NULL;
 
-	// ALWAYS RETURN EQUAL STRINGS!
-	return 0;
+    if( !handle )
+    {
+        handle = dlopen("libc.so.6", RTLD_LAZY);
+        old_strcmp = (STRCMP)dlsym(handle, "strcmp");
+    }
+    printf("hack function invoked. s1=<%s> s2=<%s>\n", s1, s2);
+    return old_strcmp(s1, s2);
 }
 ```
 
 3. 编译代码
 
 ```sh
-gcc -fPIC -c strcmp-hijack.c -o strcmp-hijack.o
-gcc -shared -o strcmp-hijack.so strcmp-hijack.o
+make
 ```
 
 4. 运行并观察实验结果
@@ -118,7 +126,7 @@ Q4（选做）：你还有什么方式可以达到Hook函数的目的？
 
 3. `attack.c`为攻击代码，通过gcc直接编译成二进制文件，不需要修改任何权限
 
-   > 在编译之前需要把root_file和tmp_file路径修改为当前工程目录所在位置
+   > 注意：在编译之前需要把attack.c文件中root_file和tmp_file路径修改为当前工程目录所在位置
 
    ```shell
    gcc attack.c -o attack
