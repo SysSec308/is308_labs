@@ -115,7 +115,7 @@ System.loadLibrary("hello_jni");
 
 实验工具：[smali](http://smali.org)、[apktool](https://ibotpeaches.github.io/Apktool/install/)、IDA
 
-实验目的：在提供的sample.apk文件中，有四个flag，找出任意2个flag，并输出报告即可。
+实验目的：在提供的sample.apk文件中，有四个被隐藏起来的字符串，它们的格式为`cApwN{this_is_secret_string}`，找出任意两个并输出报告即可得满分，有兴趣的同学可以尝试接触所有的字符串。
 
 > 本实验ddl为Lab5之前。
 
