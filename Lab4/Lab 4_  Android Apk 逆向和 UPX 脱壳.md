@@ -200,6 +200,12 @@ UPX有不光彩的使用记录，因为经常被用来给木马和病毒加壳�
 
 实验要求：在Windows 32位系统下，对于任意exe文件使用upx进行加壳然后使用脱壳工具进行脱壳。
 
+1. 使用PEID等查壳工具分析程序加壳情况
+2. 比较加壳前后PE文件结构的变化
+3. 使用堆栈平衡原理的方式脱壳
+4. 你还有什么办法破解UPX壳(选做)
+
+
 ### Reference：
 
 https://github.com/upx/upx/releases/download/v3.94/upx394w.zip
