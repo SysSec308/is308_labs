@@ -1,6 +1,13 @@
 # Lab 5 Linux DirtyCow and ShellShock
 
 ## ShellShock
+
+实验环境：Ubuntu 14.04
+
+实验工具：Apache2、wget、curl
+
+实验目的：了解ShellShock漏洞的产生原因并熟悉CGI场景下ShellShock漏洞的利用
+
 CVE-2014-6271 https://shellshocker.net/
 > 描述引用来源：[https://en.wikipedia.org/wiki/Shellshock_(software_bug)](https://en.wikipedia.org/wiki/Shellshock_(software_bug))
 > 2014年9月24日bash被公布存在远程代码执行漏洞，漏洞会影响目前主流的操作系统平台，包括但不限于Redhat、CentOS、Ubuntu、Debian、Fedora 、Amazon Linux 、OS X 10.10等平台，此漏洞目前虽然有部分系统给出了补丁，但因为漏洞修补的时效性，及漏洞的范围之大，且还存在一些没有发布补丁的问题，所以仍被定义为高危漏洞。
@@ -73,8 +80,14 @@ Q3:还有没有其他场景可能会导致ShellShock漏洞，讨论ShellShock产
 
 
 
-
 ## DirtyCow
+
+实验环境：Ubuntu 12.04 [Download](https://jbox.sjtu.edu.cn/l/aoMMrv)
+
+实验工具：gcc
+
+实验目的：了解DirtyCow漏洞的产生原因并熟悉DirtyCow漏洞的利用
+
 CVE-2016-5195 https://dirtycow.ninja/
 
 > 描述引用来源：https://github.com/dirtycow 
@@ -99,7 +112,8 @@ test@ubuntu:~$ cat target.txt
 ABCDEFGHIJKLMN
 test@ubuntu:~$ chmod 644 target.txt
 test@ubuntu:~$ sudo chown root:root target.txt
-test@ubuntu:~$ ls -al target.txt 19 May 28 22:03
+test@ubuntu:~$ ls -al 
+target.txt 19 May 28 22:03
 ```
 
 此时，当你尝试用低权限账户去改写该文件时，会发现返回Permission denied
@@ -124,5 +138,7 @@ abcdefghijklmn
 ```
 
 Q1: 复现DirtyCow的利用过程
+
 Q2: 该漏洞可能造成哪些影响
+
 Q3: 如果你作为一家公司的运维，当该漏洞被纰漏并且Linux内核还未修复该漏洞，你该如何加固你的服务器？
