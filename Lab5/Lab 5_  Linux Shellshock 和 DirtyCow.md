@@ -29,6 +29,7 @@ rm -rf /usr/local/src/cve-2014-6271
 # Install apache2 and enable CGI mod for your Linux.
 apt install apache2 && a2enmod cgi
 cp ./safe.cgi ./vuln.cgi /usr/lib/cgi-bin
+chmod +x /usr/lib/cgi-bin/*.cgi
 systemctl start apache2.service
 ```
 
